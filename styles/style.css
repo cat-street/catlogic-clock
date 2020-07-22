@@ -17,19 +17,49 @@
   width: 50vmin;
   height: 50vmin;
   margin: auto;
-  background-color: lightgray;
+  background: linear-gradient(45deg, #acacaa, #c2c2c0);
   border-radius: 20%;
   padding: 2.5vmin;
   box-sizing: border-box;
+  position: relative;
+  box-shadow: -3vmin 3vmin 7vmin 0 rgba(255, 255, 255, .3),
+    -6vmin 6vmin 2px 0 rgba(0, 0, 0, .3),
+    0 10vmin 4vmin -8vmin rgba(0, 0, 0, .4),
+    inset .2vmin -.2vmin .2vmin 0 rgba(0, 0, 0, .3);
+
+}
+
+.clock__flare {
+  position: absolute;
+  top: -.4vmin;
+  right: -.4vmin;
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 23%;
+  box-shadow: inset -.2vmin .2vmin .2vmin .1vmin rgba(255, 255, 255, .6);
 }
 
 .clock__inner {
-  background-color: white;
+  position: relative;
+  background-color: #eceeeb;
   width: 100%;
   height: 100%;
   border-radius: 17.8%;
   box-sizing: border-box;
   padding: .5vmin;
+  z-index: 50;
+}
+
+.clock__inner-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 17.8%;
+  z-index: 15;
+  box-shadow: inset -2.2vmin 2.2vmin 1px 0 rgba(67, 68, 44, .5),
+    inset .5vmin -.5vmin 1px 0 white;
 }
 
 .clock__strokes {
@@ -47,7 +77,7 @@
 .stroke {
   width: 150%;
   height: 1px;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, .4);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -76,7 +106,7 @@
   width: 1vmin;
   height: 1vmin;
   background: radial-gradient(circle at center, rgba(0, 0, 0, .6) 0,
-            rgba(0, 0, 0, .6) 40%, white 60%);
+      rgba(0, 0, 0, .6) 40%, rgba(255, 255, 255, .3) 60%);
   position: absolute;
   top: 0;
   border-radius: 50%;
@@ -97,13 +127,23 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: #eceeeb;
   margin: auto;
   z-index: 10;
-  border-radius: 10%;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 240%;
-  color: rgba(0, 0, 0, .8);
+  border-radius: 11%;
+  border-bottom-left-radius: 13%;
+}
+
+.clock__logo {
+  position: absolute;
+  bottom: 22%;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 2vmin;
+  letter-spacing: .05vmin;
+  color: rgba(0, 0, 0, .5);
+  text-shadow: 0 0 1px rgba(0, 0, 0, .2);
 }
 
 .clock__numbers {
@@ -168,36 +208,17 @@
 .clock__center {
   width: 2vmin;
   height: 2vmin;
-  background-color: black;
+  background-color: rgba(0, 0, 0, .6);
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0 0 1px .15vmin #343027,
+              inset 0 0 1px 2px #78725c;
 }
 
-.clock__long-arrow, .clock__short-arrow {
-  background-color: #baac6b;
-  position: absolute;
-}
-
-.clock__long-arrow {
-  top: .5vmin;
-  left: .5vmin;
-  width: 1vmin;
-  height: 21vmin;
-  transform-origin: .5vmin .5vmin;
-}
-
-.clock__short-arrow {
-  top: .4vmin;
-  left: .4vmin;
-  width: 1.2vmin;
-  height: 15vmin;
-  transform-origin: .6vmin .6vmin;
-}
-
-.clock__center_inner {
+.clock__center-inner {
   width: 1.6vmin;
   height: 1.6vmin;
   background-color: #baac6b;
@@ -206,4 +227,55 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: inset 0 0 0 .1vmin rgba(255, 255, 255, .2),
+              inset 0 0 1px .25vmin #d3c68f;
+  overflow: hidden;
 }
+
+.clock__center-flare,
+.clock__center-lower-flare {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.clock__center-flare {
+  border-left: .15vmin solid transparent;
+  border-right: .15vmin solid transparent;
+  border-top: .8vmin solid rgba(255, 255, 255, .6);
+  border-bottom: .8vmin solid rgba(255, 255, 255, .6);
+}
+
+.clock__center-lower-flare {
+  border-left: .25vmin solid transparent;
+  border-right: .25vmin solid transparent;
+  border-top: 1vmin solid rgba(255, 255, 255, .6);
+  border-bottom: 1vmin solid rgba(255, 255, 255, .6);
+}
+
+.clock__long-hand,
+.clock__short-hand {
+  top: .5vmin;
+  left: .5vmin;
+  width: 1vmin;
+  background: linear-gradient(to bottom, transparent 0 1vmin,
+  #c7b881 1vmin 10%, #d2c493 50%, #b2a473);
+  position: absolute;
+  transform-origin: .5vmin .5vmin;
+  box-shadow: inset 0 0 .1vmin .1vmin rgba(182, 168, 116, .3);
+}
+
+.clock__long-hand {
+  height: 21vmin;
+  transform: rotate(120deg);
+  /* animation: rotation linear 60s infinite; */
+}
+
+.clock__short-hand {
+  height: 15vmin;
+  transform: rotate(240deg);
+}
+
