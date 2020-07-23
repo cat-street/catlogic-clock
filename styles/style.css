@@ -1,10 +1,10 @@
 @keyframes rotation {
   from {
-    transform: rotate(0deg);
+    transform: rotate(-180deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
 }
 
@@ -14,6 +14,12 @@
   justify-content: center;
   align-items: center;
   background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 .clock {
@@ -144,7 +150,6 @@
   font-size: 2vmin;
   letter-spacing: .05vmin;
   color: rgba(0, 0, 0, .5);
-  text-shadow: 0 0 1px rgba(0, 0, 0, .2);
 }
 
 .clock__numbers {
@@ -282,8 +287,10 @@
   top: .5vmin;
   left: .5vmin;
   width: 1vmin;
+  background: linear-gradient(to bottom, transparent 1vmin,
+    #c7b881 10%, #d2c493 50%, #b2a473);
   background: linear-gradient(to bottom, transparent 0 1vmin,
-  #c7b881 1vmin 10%, #d2c493 50%, #b2a473);
+    #c7b881 1vmin 10%, #d2c493 50%, #b2a473);
   position: absolute;
   transform-origin: .5vmin .5vmin;
   box-shadow: inset 0 0 .1vmin .1vmin rgba(182, 168, 116, .3);
@@ -291,11 +298,12 @@
 
 .clock__long-hand, .clock__long-shadow-hand {
   height: 20.2vmin;
-  /* animation: rotation linear 60s infinite; */
+  animation: rotation linear 3600s infinite;
 }
 
 .clock__short-hand, .clock__short-shadow-hand  {
   height: 14.2vmin;
+  animation: rotation linear 43200s infinite;
 }
 
 .clock__long-shadow-hand,
