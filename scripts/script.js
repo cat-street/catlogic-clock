@@ -23,11 +23,10 @@ const setTransition = (type) => {
 
 const setDate = () => {
   const currentTime = new Date();
-  const seconds = currentTime.getSeconds();
   const minutes = currentTime.getMinutes();
   const hours = currentTime.getHours();
-  const minutesDegrees = minutes / 60 * 360 - 180;
-  const hoursDegrees = hours / 12 * 360 - 180 + 30 * minutes / 60;
+  const minutesDegrees = minutes / 60 * 360;
+  const hoursDegrees = hours / 12 * 360 + 30 * minutes / 60;
   longHand.style.transform = `rotate(${minutesDegrees}deg)`;
   longShadowHand.style.transform = `rotate(${minutesDegrees}deg)`;
   shortHand.style.transform = `rotate(${hoursDegrees}deg)`;
