@@ -32,10 +32,6 @@ const setDate = () => {
   longShadowHand.style.transform = `rotate(${minutesDegrees}deg)`;
   shortHand.style.transform = `rotate(${hoursDegrees}deg)`;
   shortShadowHand.style.transform = `rotate(${hoursDegrees}deg)`;
-  if (minutes === 59 && seconds >= 55) {
-    setTransition('');
-    setInterval(setTransition.bind(this, 'transform 1s'), 6000);
-  }
 };
 
 const setColor = (event) => {
