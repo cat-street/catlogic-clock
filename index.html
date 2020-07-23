@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Special Clock</title>
-  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <title>CatLogic Clock</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./vendor/normalize.css">
   <link rel="stylesheet" href="./styles/style.css">
   <script src="./scripts/script.js" defer></script>
 </head>
+
 <body class="body">
+
+  <ul class="colorChooser">
+    <li class="colorChooser__item" data-color="white"></li>
+    <li class="colorChooser__item" data-color="beige"></li>
+    <li class="colorChooser__item" data-color="lavender"></li>
+    <li class="colorChooser__item" data-color="peachpuff"></li>
+    <li class="colorChooser__item" data-color="lightblue"></li>
+  </ul>
 
   <div class="clock">
     <div class="clock__flare"></div>
@@ -51,8 +63,10 @@
           <div class="clock__long-shadow-hand"></div>
           <div class="clock__logo">CatLogic</div>
           <div class="clock__numbers clock__numbers_position_top">
-            <span class="number"><img src="./images/1.svg" alt=""><img src="./images/1.svg" alt=""></span>
-            <span class="number"><img src="./images/1.svg" alt=""><img src="./images/2.svg" alt=""></span>
+            <span class="number"><img src="./images/1.svg" alt=""><img
+                src="./images/1.svg" alt=""></span>
+            <span class="number"><img src="./images/1.svg" alt=""><img
+                src="./images/2.svg" alt=""></span>
             <span class="number"><img src="./images/1.svg" alt=""></span>
           </div>
           <div class="clock__numbers clock__numbers_position_right">
@@ -68,7 +82,8 @@
           <div class="clock__numbers clock__numbers_position_left">
             <span class="number"><img src="./images/8.svg" alt=""></span>
             <span class="number"><img src="./images/9.svg" alt=""></span>
-            <span class="number number_ten"><img src="./images/1.svg" alt=""><img src="./images/0.svg" alt=""></span>
+            <span class="number number_ten"><img src="./images/1.svg"
+                alt=""><img src="./images/0.svg" alt=""></span>
           </div>
           <div class="clock__center">
             <div class="clock__shadow-thingy"></div>
@@ -85,4 +100,5 @@
   </div>
 
 </body>
+
 </html>
