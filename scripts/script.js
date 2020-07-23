@@ -14,27 +14,28 @@ const addStrokes = () => {
   });
 };
 
+const setTransition = (type) => {
+  longHand.style.transition = type;
+  longShadowHand.style.transition = type;
+  shortHand.style.transition = type;
+  shortShadowHand.style.transition = type;
+}
+
 const setDate = () => {
   const currentTime = new Date();
+  const seconds = currentTime.getSeconds();
   const minutes = currentTime.getMinutes();
   const hours = currentTime.getHours();
   const minutesDegrees = minutes / 60 * 360 - 180;
   const hoursDegrees = hours / 12 * 360 - 180 + 30 * minutes / 60;
-  const setTransition = (type) => {
-    longHand.style.transition = type;
-    longShadowHand.style.transition = type;
-    shortHand.style.transition = type;
-    shortShadowHand.style.transition = type;
-  }
-  if (minutes === 0) {
-    setTransition('');
-    setInterval(setTransition.bind(this, 'transform 1s'), 500);
-  }
   longHand.style.transform = `rotate(${minutesDegrees}deg)`;
   longShadowHand.style.transform = `rotate(${minutesDegrees}deg)`;
   shortHand.style.transform = `rotate(${hoursDegrees}deg)`;
   shortShadowHand.style.transform = `rotate(${hoursDegrees}deg)`;
-  setInterval(setTransition.bind(this, 'transform 1s'), 1000);
+  if (minutes === 59 && seconds >= 55) {
+    setTransition('');
+    setInterval(setTransition.bind(this, 'transform 1s'), 6000);
+  }
 };
 
 const setColor = (event) => {
@@ -43,6 +44,7 @@ const setColor = (event) => {
 
 addStrokes();
 setDate();
+setInterval(setTransition.bind(this, 'transform 1s'), 1000);
 setInterval(setDate, 5000);
 
 colorChoosers.forEach(chooser => {
