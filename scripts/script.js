@@ -40,7 +40,7 @@ const setColor = (event) => {
 addStrokes();
 setDate();
 setInterval(setTransition.bind(this, 'transform 1s'), 1000);
-setInterval(setDate, 5000);
+setInterval(setDate, 1000);
 
 colorChoosers.forEach(chooser => {
   chooser.addEventListener('click', setColor);
