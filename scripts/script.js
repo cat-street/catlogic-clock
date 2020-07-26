@@ -2,6 +2,8 @@ const longHand = document.querySelector('.clock__long-hand');
 const longShadowHand = document.querySelector('.clock__long-shadow-hand');
 const shortHand = document.querySelector('.clock__short-hand');
 const shortShadowHand = document.querySelector('.clock__short-shadow-hand');
+const thinHand = document.querySelector('.clock__thin-hand');
+const thinShadowHand = document.querySelector('.clock__thin-shadow-hand');
 const body = document.querySelector('.body');
 const colorChoosers = Array.from(document.querySelectorAll('.colorChooser__item'));
 
@@ -19,14 +21,23 @@ const setTransition = (type) => {
   longShadowHand.style.transition = type;
   shortHand.style.transition = type;
   shortShadowHand.style.transition = type;
+  thinHand.style.transition = type;
+  thinShadowHand.style.transition = type;
 }
 
 const setDate = () => {
   const currentTime = new Date();
+  const seconds = currentTime.getSeconds();
   const minutes = currentTime.getMinutes();
   const hours = currentTime.getHours();
+  const secondsDegrees = seconds / 60 * 360;
   const minutesDegrees = minutes / 60 * 360;
   const hoursDegrees = hours / 12 * 360 + 30 * minutes / 60;
+  if (seconds === 0 || minutes === 0 || hours === 0) {
+    setTransition('');
+  }
+  thinHand.style.transform = `rotate(${secondsDegrees}deg)`;
+  thinShadowHand.style.transform = `rotate(${secondsDegrees}deg)`;
   longHand.style.transform = `rotate(${minutesDegrees}deg)`;
   longShadowHand.style.transform = `rotate(${minutesDegrees}deg)`;
   shortHand.style.transform = `rotate(${hoursDegrees}deg)`;
