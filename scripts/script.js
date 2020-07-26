@@ -33,9 +33,6 @@ const setDate = () => {
   const secondsDegrees = seconds / 60 * 360;
   const minutesDegrees = minutes / 60 * 360;
   const hoursDegrees = hours / 12 * 360 + 30 * minutes / 60;
-  if (seconds === 0 || minutes === 0 || hours === 0) {
-    setTransition('');
-  }
   thinHand.style.transform = `rotate(${secondsDegrees}deg)`;
   thinShadowHand.style.transform = `rotate(${secondsDegrees}deg)`;
   longHand.style.transform = `rotate(${minutesDegrees}deg)`;
