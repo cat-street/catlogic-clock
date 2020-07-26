@@ -367,19 +367,20 @@ html, .body {
 .clock__long-shadow-hand,
 .clock__short-shadow-hand,
 .clock__thin-shadow-hand {
-  bottom: 46%;
   background-color: #b9bbb1;
   position: absolute;
 }
 
 .clock__long-shadow-hand,
 .clock__short-shadow-hand {
+  bottom: 46.5%;
   width: 1vmin;
   left: calc(50% - 1.5vmin);
   transform-origin: .5vmin calc(100% - .5vmin);
 }
 
 .clock__thin-shadow-hand {
+  bottom: 47%;
   width: .5vmin;
   left: calc(50% - .75vmin);
   transform-origin: .25vmin calc(100% - .25vmin);
