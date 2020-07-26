@@ -16,29 +16,26 @@ const addStrokes = () => {
   });
 };
 
-const setTransition = (type) => {
-  longHand.style.transition = type;
-  longShadowHand.style.transition = type;
-  shortHand.style.transition = type;
-  shortShadowHand.style.transition = type;
-  thinHand.style.transition = type;
-  thinShadowHand.style.transition = type;
-}
-
 const setDate = () => {
   const currentTime = new Date();
-  const seconds = currentTime.getSeconds();
-  const minutes = currentTime.getMinutes();
-  const hours = currentTime.getHours();
+  const milliseconds = currentTime.getMilliseconds();
+  let seconds = currentTime.getSeconds();
+  let minutes = currentTime.getMinutes();
+  let hours = currentTime.getHours();
+  if (hours > 12) hours -= 12;
+  seconds += milliseconds / 1000;
+  minutes += seconds / 60;
+  hours += minutes / 60;
   const secondsDegrees = seconds / 60 * 360;
   const minutesDegrees = minutes / 60 * 360;
-  const hoursDegrees = hours / 12 * 360 + 30 * minutes / 60;
+  const hoursDegrees = hours / 12 * 360;
   thinHand.style.transform = `rotate(${secondsDegrees}deg)`;
   thinShadowHand.style.transform = `rotate(${secondsDegrees}deg)`;
   longHand.style.transform = `rotate(${minutesDegrees}deg)`;
   longShadowHand.style.transform = `rotate(${minutesDegrees}deg)`;
   shortHand.style.transform = `rotate(${hoursDegrees}deg)`;
   shortShadowHand.style.transform = `rotate(${hoursDegrees}deg)`;
+  requestAnimationFrame(setDate);
 };
 
 const setColor = (event) => {
@@ -47,8 +44,6 @@ const setColor = (event) => {
 
 addStrokes();
 setDate();
-setInterval(setTransition.bind(this, 'transform 1s'), 1000);
-setInterval(setDate, 1000);
 
 colorChoosers.forEach(chooser => {
   chooser.addEventListener('click', setColor);
