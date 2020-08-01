@@ -1,7 +1,7 @@
 # CatLogic Clock
 **Self-study CSS & JavaScript Project**
 
-![Clock Preview](https://raw.githubusercontent.com/cat-street/catlogic-clock/master/images/catlogic-clock.png)
+![Clock Preview](./images/catlogic-clock.png)
 
 ### About
 
