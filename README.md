@@ -6,7 +6,7 @@
 ### About
 
 A pure CSS clock displaying current time from the user machine.
-* Current live version at http://catlogic.ru/catlogic-clock/
+* Current live version at https://cat-street.github.io/catlogic-clock/
 
 ### Under the hood
 
